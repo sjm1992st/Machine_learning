@@ -1,0 +1,239 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>JSChart</title>
+<script src="jquery-1.8.2.min.js"></script>
+<style>
+.d_b{
+    height: 20px;
+    width: 10px;
+    display: inline-block;
+    background-color: blue;
+    position: relative;
+    vertical-align: middle;
+    top: -15px;
+    left: -5px;
+}
+div#graph {background-color:#EEEEEE;height:321px;width:616px;float:left;}
+</style>
+        <style type="text/css">
+         *{margin:0;padding:0;}
+canvas{display:block;margin:10px auto 0;}
+    </style>
+</script>
+<script type="text/javascript">
+</script>
+</head>
+<body>
+<canvas id="controlCanvas" width="500" height="500"></canvas>
+<script type="text/javascript">
+$(function(){
+//init();
+var canvas=document.getElementById("controlCanvas"); 
+var context = canvas.getContext("2d"); 
+var img=new Image();
+
+    img.onload = function () {
+        context.drawImage(img,0,0);
+    };
+    //加载图片，完成后执行刚才的函数
+    img.src="b.png";
+})
+
+//canvas.onclick=function(e)
+$("#controlCanvas").mousedown(function(e)
+	{//给canvas添加点击事件
+	var canvas = document.getElementById("controlCanvas"); 
+	var context = canvas.getContext("2d"); 
+    e=e||event;//获取事件对象
+    //获取事件在canvas中发生的位置
+    var x=e.clientX-canvas.offsetLeft;
+    var y=e.clientY-canvas.offsetTop;
+    //如果事件位置在矩形区域中
+	//x=-91+4*(x-20)/20;
+	//y=60-4.5*(y-20)/20;
+	var a1=$("#d1").attr("value")
+	var b1=$("#d2").attr("value")
+	var a2=$("#d3").attr("value")
+	var b2=$("#d4").attr("value")
+	//mycars=[5,10,1,10,-5,-10,-1,-10]
+	var myData1 = new Array();
+	var myData2 = new Array();
+	var myData3 = new Array();
+	t=0.05
+	k=0 
+	x=-90
+
+	for (var xi=-90;xi<1;)
+	{  
+	for (var yi=-40;yi<61;)
+	{	
+		myData3[k]=new Array();
+		myData3[k][0]=xi
+		myData3[k][1]=yi
+		k=k+1
+	    myData3[k]=new Array();
+		myData3[k][0]=xi+t*(0.04*xi*xi+5*xi+140)
+		myData3[k][1]=yi+t*(a1*(b1*xi-yi))
+		yi=yi+5
+		k=k+1
+	}
+		xi=xi+5
+	}	
+	for (var i=0;i<90;i++)
+	{ 
+	myData1[i]=new Array();
+	myData1[i][0]=x;
+	myData1[i][1]=0.04*x*x+5*x+140;
+	myData2[i]=new Array();
+	myData2[i][0]=x;
+	myData2[i][1]=b1*x;
+	x=x+1;
+	}
+	for (var j=0;j+1<i;j++)
+	{
+	context.moveTo(20+20*(myData1[j][0]+91)/4,20+20*(60-myData1[j][1])/4.5);
+	context.lineTo(20+20*(myData1[j+1][0]+91)/4,20+20*(60-myData1[j+1][1])/4.5); 
+	context.moveTo(20+20*(myData2[j][0]+91)/4,20+20*(60-myData2[j][1])/4.5);
+	context.lineTo(20+20*(myData2[j+1][0]+91)/4,20+20*(60-myData2[j+1][1])/4.5); 
+	}
+	context.strokeStyle="red";
+	context.stroke();
+	for (var j=0;j+1<360*2;)
+	{
+	context.moveTo(20+20*(myData3[j][0]+91)/4,20+20*(60-myData3[j][1])/4.5);
+	context.lineTo(20+20*(myData3[j+1][0]+91)/4,20+20*(60-myData3[j+1][1])/4.5); 
+	j=j+2
+	}
+})
+</script>
+v&#39;=0.04v&sup2;+5v+140-u
+<br>
+<div id="d1" style="width:200px;cursor: pointer;" max1=12 min1=-1 value=10 >
+  <div  style="height:10px; width:100%; background-color:black" ></div>
+<b class="d_b"></b>a1:<small id="text1"></small>
+</div>
+<div id="d2" style="width:200px;cursor: pointer;" max2=12 min2=-1 value=10 >
+  <div style="height:10px; width:100%; background-color:black" ></div>
+<b class="d_b"></b>b1:<small id="text2"></small>
+</div>
+<br>
+u&#39;=a1(b1v-u)
+<br>
+if v>=30, v=a2,u=u+b2
+<br>
+<div id="d3" style="width:200px;cursor: pointer;" max3=12 min3=-1 value=10 >
+  <div style="height:10px; width:100%; background-color:black" ></div>
+<b class="d_b"></b>a2:<small id="text3"></small>
+</div>
+
+<div id="d4" style="width:200px;cursor: pointer;" max4=12 min4=-1 value=10 >
+  <div style="height:10px; width:100%; background-color:black" ></div>
+<b class="d_b"></b>b2:<small id="text4"></small>
+</div>
+<br>
+
+</div>
+
+<script type="text/javascript">
+var $dom = $(document);
+$dom.on('mousedown','#d1',function (argument) {
+    $(this).data('mouse','down');
+    console.log('down');
+})
+$dom.on('mouseup',function(){
+    $('#d1').data('mouse','up');
+    console.log('up');
+});
+$dom.on('mousedown','#d2',function (argument) {
+    $(this).data('mouse','down');
+    console.log('down');
+})
+$dom.on('mouseup',function(){
+    $('#d2').data('mouse','up');
+    console.log('up');
+});
+$dom.on('mousedown','#d3',function (argument) {
+    $(this).data('mouse','down');
+    console.log('down');
+})
+$dom.on('mouseup',function(){
+    $('#d3').data('mouse','up');
+    console.log('up');
+});
+$dom.on('mousedown','#d4',function (argument) {
+    $(this).data('mouse','down');
+    console.log('down');
+})
+$dom.on('mouseup',function(){
+    $('#d4').data('mouse','up');
+    console.log('up');
+});
+$dom.on('mousemove','#d1',function(event){
+    if($(this).data('mouse') == 'down'){
+        var m_x = event.clientX;   
+        var d_b = $(this).find('.d_b');
+         m_x = m_x < 8 ? 8 : m_x;
+         m_x = m_x > 208 ? 208: m_x;
+        d_b.css('left',m_x-13);
+        var max = $(this).attr('max1');
+        $(this).attr('value', Math.floor((m_x-8)/200 * max-5)/100)
+        console.log($(this).attr('value'));
+        $('#text1').text($(this).attr('value'))
+		$('#text5').text($(this).attr('value'))
+ // 
+	}
+});
+$dom.on('mousemove','#d2',function(event){
+    if($(this).data('mouse') == 'down'){
+        var m_x = event.clientX;   
+        var d_b = $(this).find('.d_b');
+         m_x = m_x < 8 ? 8 : m_x;
+         m_x = m_x > 208 ? 208: m_x;
+        d_b.css('left',m_x-13);
+        var max = $(this).attr('max2');
+        $(this).attr('value', Math.floor((m_x-8)/200 * max-5)/10)
+        console.log($(this).attr('value'));
+        $('#text2').text($(this).attr('value'))
+		$('#text6').text($(this).attr('value'))
+ // 
+	}
+});
+$dom.on('mousemove','#d3',function(event){
+    if($(this).data('mouse') == 'down'){
+        var m_x = event.clientX;   
+        var d_b = $(this).find('.d_b');
+         m_x = m_x < 8 ? 8 : m_x;
+         m_x = m_x > 208 ? 208: m_x;
+        d_b.css('left',m_x-13);
+        var max = $(this).attr('max3');
+        $(this).attr('value', Math.floor((m_x-8)/200 * max-5)*10)
+        console.log($(this).attr('value'));
+        $('#text3').text($(this).attr('value'))
+		$('#text7').text($(this).attr('value'))
+ // 
+	}
+});
+$dom.on('mousemove','#d4',function(event){
+    if($(this).data('mouse') == 'down'){
+        var m_x = event.clientX;   
+        var d_b = $(this).find('.d_b');
+         m_x = m_x < 8 ? 8 : m_x;
+         m_x = m_x > 208 ? 208: m_x;
+        d_b.css('left',m_x-13);
+        var max = $(this).attr('max4');
+        $(this).attr('value', Math.floor((m_x-8)/200 * max-5))
+        console.log($(this).attr('value'));
+        $('#text4').text($(this).attr('value'))
+		$('#text8').text($(this).attr('value'))
+ // 
+	}
+});
+//
+</script>
+<script src="highcharts.js"></script>
+<script src="exporting.js"></script>
+
+<div id="container" style="min-width: 310px; height: 400px; max-width: 700px; margin: 0 auto"></div>
+</body>
+</html>
