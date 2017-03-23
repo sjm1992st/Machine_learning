@@ -9,13 +9,13 @@ Machine Learning
 	![img](https://github.com/sjm1992st/Machine_learning/blob/master/machine_learning_img/L2_2.PNG)<br>
 * **Lecture03**
 	* BP algorithm to MNIST<br>
-	![img](https://github.com/sjm1992st/Machine_learning/blob/master/machine_learning_img/L3.png)<br>
+	![img](https://github.com/sjm1992st/Machine_learning/blob/master/machine_learning_img/L3.PNG)<br>
 * **Lecture04**
 	* Data fitting<br>
-	![img](https://github.com/sjm1992st/Machine_learning/blob/master/machine_learning_img/L4.png)<br>
+	![img](https://github.com/sjm1992st/Machine_learning/blob/master/machine_learning_img/L4.PNG)<br>
 * **Lecture05**
 	* Logistic Regression, MDS,K-Means and Hierarchical classification<br>
-	![img](https://github.com/sjm1992st/Machine_learning/blob/master/machine_learning_img/L5_1.png)<br>
+	![img](https://github.com/sjm1992st/Machine_learning/blob/master/machine_learning_img/L5_1.PNG)<br>
 	![img](https://github.com/sjm1992st/Machine_learning/blob/master/machine_learning_img/L5_2.PNG)<br>
 	![img](https://github.com/sjm1992st/Machine_learning/blob/master/machine_learning_img/L5_3.PNG)<br>
 	![img](https://github.com/sjm1992st/Machine_learning/blob/master/machine_learning_img/L5_4.PNG)<br>
@@ -26,4 +26,4 @@ Machine Learning
 	![img](https://github.com/sjm1992st/Machine_learning/blob/master/machine_learning_img/L6_3.PNG)<br>
 * **Lecture07**
 	* Dynamical system<br>
-	![img](https://github.com/sjm1992st/Machine_learning/blob/master/machine_learning_img/L7.png)<br>
+	![img](https://github.com/sjm1992st/Machine_learning/blob/master/machine_learning_img/L7.PNG)<br>
