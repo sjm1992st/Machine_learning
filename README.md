@@ -1,8 +1,8 @@
 Machine Learning
 ==
 * **Lecture01**
-	* Perceptron Algorithm
-  ![img] (https://github.com/sjm1992st/Machine_learning/blob/master/machine_learning_img/Perceptron.png)<br>
+	* Perceptron Algorithm<br>
+  ![img](https://github.com/sjm1992st/Machine_learning/blob/master/machine_learning_img/Perceptron.png)<br>
 * **Lecture02**
 	* Law of large numbers and Central limit theorem
 
