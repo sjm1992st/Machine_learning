@@ -1,6 +1,6 @@
 Machine Learning
 ==
-* **Lecture01**
+* **[Lecture01](https://github.com/sjm1992st/Machine_learning/tree/master/lecture01)**
 	* Perceptron Algorithm<br>
 	![img](https://github.com/sjm1992st/Machine_learning/blob/master/machine_learning_img/Perceptron.png)<br>
 * **Lecture02**
